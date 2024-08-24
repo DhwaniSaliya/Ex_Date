@@ -15,7 +15,7 @@ class Item {
     this.notes,
   });
 
-  // Convert an Item to a Map
+  // Converted an Item to a Map
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -27,7 +27,7 @@ class Item {
     };
   }
 
-   // Create an Item from a Map
+   // Created an Item from a Map
   factory Item.fromMap(Map<String, dynamic> map) {
     return Item(
       id: map['id'],

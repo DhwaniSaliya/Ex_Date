@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class RecipeService {
-  final String apiKey = '321f75dc8b79405f91ad5ce92900bc39'; // Replace with your actual API key
+  final String apiKey = dotenv.env['SPOONACULAR_API_KEY']!; // Replace with your actual API key
   final String baseUrl = 'https://api.spoonacular.com/recipes';
 
   Future<List<dynamic>> fetchRecipes(List<String> ingredients) async {
