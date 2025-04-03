@@ -2,6 +2,7 @@ import 'package:ex_date/firebase_options.dart';
 import 'package:ex_date/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 final theme = ThemeData(
   brightness: Brightness.light,
@@ -11,6 +12,9 @@ final theme = ThemeData(
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  //Load dotenv before Firebase
+  await dotenv.load(fileName: ".env");
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
