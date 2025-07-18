@@ -11,15 +11,15 @@ class SearchRecipesScreen extends StatefulWidget {
 }
 
 class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
-  final _controller = TextEditingController();
-  final Set<String> _ingredients = {};
+  final _controller = TextEditingController(); //controls the i/p field
+  final Set<String> _ingredients = {}; //stores unique ingredients
 
   void _addIngredient() {
-    final ingredient = _controller.text.trim();
+    final ingredient = _controller.text.trim(); //remove extra spaces
     if (ingredient.isNotEmpty) {
       setState(() {
-        _ingredients.add(ingredient);
-        _controller.clear();
+        _ingredients.add(ingredient); //add to set (as we know set avoids duplicates)
+        _controller.clear(); //clear the i/p
       });
     }
   }
@@ -29,7 +29,7 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
       context,
       MaterialPageRoute(
         builder: (context) => RecipeSuggestionsScreen(
-          ingredients: _ingredients.toList(),
+          ingredients: _ingredients.toList(), // converted set to list
         ),
       ),
     );

@@ -1,3 +1,5 @@
+import 'package:ex_date/screens/dashboard_screen.dart';
+import 'package:ex_date/screens/history_screen.dart';
 import 'package:ex_date/screens/item_list_screen.dart';
 import 'package:ex_date/screens/search_recipe_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +17,7 @@ class MainDrawer extends StatelessWidget {
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [
               Theme.of(context).colorScheme.primaryContainer,
-              Theme.of(context).colorScheme.primaryContainer.withOpacity(0.8)
+              Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.8)
             ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
             child: Row(
               children: [
@@ -42,12 +44,12 @@ class MainDrawer extends StatelessWidget {
             leading: Icon(
               Icons.list,
               size: 25,
-              color: Theme.of(context).colorScheme.onBackground,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
             title: Text(
               'Items List',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 24,
                   ),
             ),
@@ -60,19 +62,62 @@ class MainDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
+              Icons.history,
+              size: 25,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+            title: Text(
+              'History',
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 24,
+              ),
+            ),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return const HistoryScreen();
+              }));
+            },
+          ),
+          ListTile(
+            leading: Icon(
               Icons.fastfood,
               size: 25,
-              color: Theme.of(context).colorScheme.onBackground,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
             title: Text(
               'Recipe Suggestion',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 24,
                   ),
             ),
-            onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>const SearchRecipesScreen()));},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SearchRecipesScreen()));
+            },
           ),
+          ListTile(
+            leading: Icon(
+              Icons.dashboard,
+              size: 25,
+              color: Theme.of(context).colorScheme.onSurface, //previously onBackground was used.
+            ),
+            title: Text(
+              'Dashboard',
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontSize: 24),
+            ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DashboardScreen()));
+            },
+          )
         ],
       ),
     );

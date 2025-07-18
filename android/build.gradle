@@ -16,3 +16,15 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
+buildscript {
+    ext.kotlin_version = '1.8.20' //i added this to solve compatibility issues
+    repositories {
+        google()  // Required for Google Services
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.3.0'  // or whatever version you use
+        classpath 'com.google.gms:google-services:4.3.15'  // this is the one causing the issue
+    }
+}

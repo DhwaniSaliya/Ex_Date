@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ex_date/models/item_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart'; //used for formatting dates
 
 class EditScreen extends StatefulWidget {
   const EditScreen({super.key, required this.item});
@@ -15,15 +15,18 @@ class EditScreen extends StatefulWidget {
 }
 
 class _EditScreenState extends State<EditScreen> {
-  final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>(); //form key to manage form state and validation
+  //controllers for form in/p fields
   final _nameController = TextEditingController();
   final _purchaseDateController = TextEditingController();
   final _expiryDateController = TextEditingController();
   final _quantityController = TextEditingController();
   final _notesController = TextEditingController();
 
+  //to perform initialization tasks that should run only once, need to be done before build() is called
+  //for the first time
   @override
-  void initState() {
+  void initState() { //here, it pre-fills the form fields with the current values of the item to be edited
     super.initState();
     _nameController.text = widget.item.name;
     _purchaseDateController.text =
@@ -34,6 +37,7 @@ class _EditScreenState extends State<EditScreen> {
     _notesController.text = widget.item.notes ?? '';
   }
 
+  // Dispose controllers to free memory when widget is removed
   @override
   void dispose() {
     super.dispose();
@@ -44,9 +48,11 @@ class _EditScreenState extends State<EditScreen> {
     _notesController.dispose();
   }
 
-  Future<void> _updateItem() async{
+  //editing item information
+  Future<void> _updateItem() async{ // Saves the item to Firestore after validation
     if(_formKey.currentState!.validate()){
       try{
+        // Get current logged-in user
         final user = FirebaseAuth.instance.currentUser;
         if (user == null) {
           throw Exception('No user is currently logged in');
@@ -57,8 +63,10 @@ class _EditScreenState extends State<EditScreen> {
             .doc(userId)
             .collection('items');
 
+      //create a new doc with generated ID
       final itemRef = itemsCollection.doc(widget.item.id);
 
+      //construct item from form i/p
       final updatedItem = Item(
           id: widget.item.id,
           name: _nameController.text.trim(),

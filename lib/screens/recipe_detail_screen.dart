@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//screen shows full details for a single recipe
 class RecipeDetailScreen extends StatelessWidget {
   const RecipeDetailScreen({super.key, required this.recipe});
 
@@ -41,6 +42,7 @@ class RecipeDetailScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
+            // Loop through missed ingredients
             ...recipe['missedIngredients'].map((ingredient) {
               return ListTile(
                 leading: Container(
@@ -64,6 +66,7 @@ class RecipeDetailScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
+            //loop through used ingredients
             ...recipe['usedIngredients'].map((ingredient) {
               return ListTile(
                 leading: Container(

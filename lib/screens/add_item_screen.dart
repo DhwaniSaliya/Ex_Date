@@ -3,7 +3,7 @@ import 'package:ex_date/models/item_model.dart';
 import 'package:ex_date/screens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart'; //for
 
 class AddItemScreen extends StatefulWidget {
   const AddItemScreen({super.key});
@@ -15,13 +15,14 @@ class AddItemScreen extends StatefulWidget {
 }
 
 class _AddItemScreenState extends State<AddItemScreen> {
-  final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>(); //to manage form state and validation
   final _nameController = TextEditingController();
   final _purchaseDateController = TextEditingController();
   final _expiryDateController = TextEditingController();
   final _quantityController = TextEditingController();
   final _notesController = TextEditingController();
 
+  // Dispose controllers to free memory when widget is removed
   @override
   void dispose() {
     _nameController.dispose();
@@ -32,7 +33,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
     super.dispose();
   }
 
-
+  //save item to firestore after validating
   Future<void> _saveItem() async {
     if (_formKey.currentState!.validate()) {
       try {
@@ -46,8 +47,10 @@ class _AddItemScreenState extends State<AddItemScreen> {
             .doc(userId)
             .collection('items');
 
+        //create a new document with generated ID
         final newItemRef = itemsCollection.doc();
 
+        //create item from form i/p
         final item = Item(
           id: newItemRef.id,
           name: _nameController.text.trim(),
@@ -57,10 +60,42 @@ class _AddItemScreenState extends State<AddItemScreen> {
           notes: _notesController.text.trim(),
         );
 
+        // Check for invalid date logic (expiry before purchase)
+        if(item.expiryDate.isBefore(item.purchaseDate)){
+          return showDialog(
+          context: context, 
+          builder: (context){
+            return Dialog(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              insetPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Form(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text("Expiry date is before the Purchase date. Kindly fix it!"),
+                      const SizedBox(height: 8,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                            onPressed: (){Navigator.pop(context);}, 
+                            child: const Text("Ok, Got it!"))
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          });
+        }
+
         // Save item to Firestore with the generated document ID
         await newItemRef.set(item.toMap());
         if (!mounted) return;
-        Navigator.pop(context);
+        Navigator.pop(context); //go back after saving
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Failed to save item: $e')),
@@ -121,8 +156,9 @@ class _AddItemScreenState extends State<AddItemScreen> {
                   labelText: 'Expiry Date',
                   suffixIcon: IconButton(
                     icon: const Icon(Icons.calendar_today),
-                    onPressed: () =>
-                        _selectDate(context, _expiryDateController),
+                    onPressed: (){
+                      _selectDate(context, _expiryDateController);
+                    },
                   ),
                 ),
                 readOnly: true,
@@ -170,6 +206,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
     );
   }
 
+  // Opens a date picker and updates the corresponding controller
   Future<void> _selectDate(
       BuildContext context, TextEditingController controller) async {
     final DateTime? selectedDate = await showDatePicker(

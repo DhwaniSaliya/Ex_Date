@@ -47,3 +47,33 @@ lib/firebase_options.dart
 
 # Environment files
 .env 
+
+# Firebase service accounts or credentials
+*.json
+
+# IDE folders
+.vscode/
+
+# Android local/intermediate build and CMake artifacts
+android/.cxx/
+android/build/
+
+# Resized app icons and launcher icons if auto-generated
+android/app/src/main/res/mipmap-*/launcher_icon.png
+
+# Node.js related
+node_modules/
+package-lock.json
+package.json
+
+# Devtools and miscellaneous config
+devtools_options.yaml
+
+# Misc scripts (optional, they are not part of app logic)
+getToken.js
+sendNotification.js
+Dk.java
+Prac.java
+
+# Firebase Admin SDK credentials
+exdate-*-firebase-adminsdk-*.json

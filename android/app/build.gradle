@@ -24,12 +24,13 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.example.ex_date"
-    compileSdk flutter.compileSdkVersion
+    compileSdk = 35 //flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true  // <-- add this line
     }
 
     kotlinOptions {
@@ -64,4 +65,15 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+apply plugin: 'com.google.gms.google-services'
+
+dependencies {
+    implementation 'com.google.firebase:firebase-messaging'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'  // added this line
+}
+
+configurations.all {
+resolutionStrategy {
+force 'androidx.appcompat:appcompat:1.6.1'
+}
+}
