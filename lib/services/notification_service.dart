@@ -57,6 +57,7 @@ Future<void> scheduleNotification(bool isOn) async {
             'expiry_channel', //channel id
             'Expiry Notifications', //channel name
             channelDescription: 'Reminders for expiring items',
+            icon: 'logo',
             importance: Importance.max,
             priority: Priority.high,
           ),
