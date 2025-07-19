@@ -1,8 +1,8 @@
-#ExDate – Expiry Date Tracker for Food & Medicines
-
 <p align="center">
   <img src="assets/images/Logo2.png" alt="ExDate Logo" width="150"/>
 </p>
+
+# ExDate – Expiry Date Tracker for Food & Medicines
 
 ExDate is a smart Flutter app that helps you track the expiry dates of food items and medicines, suggest recipes based on what you have, and minimize waste with timely alerts.
 
