@@ -6,18 +6,12 @@
 
 ExDate is a smart Flutter app that helps you track the expiry dates of food items and medicines, suggest recipes based on what you have, and minimize waste with timely alerts.
 
-<div style="display: flex; flex-wrap: wrap; width: 1000px; margin: auto;">
-  <img src="https://github.com/user-attachments/assets/748051cf-1988-40f3-93f1-f2345299b5c2" alt="Screenshot 1" width="180" style="margin: 5px;"/>
-  <img src="https://github.com/user-attachments/assets/42fff9b7-5d3d-411a-8762-a26f6aa316d4" alt="Screenshot 2" width="180" style="margin: 5px;"/>
-  <img src="https://github.com/user-attachments/assets/a0094890-3ff6-449f-967e-c4017af5a742" alt="Screenshot 3" width="180" style="margin: 5px;"/>
-  <img src="https://github.com/user-attachments/assets/ee02c638-8b23-4ffd-989c-80da7f77b1a9" alt="Screenshot 4" width="180" style="margin: 5px;"/>
-  <img src="https://github.com/user-attachments/assets/f452534a-dca0-4834-8f9a-3f040e8bbad0" alt="Screenshot 5" width="180" style="margin: 5px;"/>
-  <img src="https://github.com/user-attachments/assets/0de95ddf-69dd-4162-a973-5a22e06fba9f" alt="Screenshot 6" width="180" style="margin: 5px;"/>
-  <img src="https://github.com/user-attachments/assets/7b977943-47e7-479a-839f-a190f8ba03f1" alt="Screenshot 7" width="180" style="margin: 5px;"/>
-  <img src="https://github.com/user-attachments/assets/68c2d2ae-e5ad-410a-a177-85ecd34a79e3" alt="Screenshot 8" width="180" style="margin: 5px;"/>
-  <img src="https://github.com/user-attachments/assets/0c0a1130-76c4-420c-bdda-a6c082c2c44d" alt="Screenshot 9" width="180" style="margin: 5px;"/>
-  <img src="https://github.com/user-attachments/assets/f2bd5825-f43e-4f35-b979-49282b2a4f72" alt="Screenshot 10" width="180" style="margin: 5px;"/>
-</div>
+## Demo
+[![Watch the video](https://img.youtube.com/vi/x7PxFA5COgg/0.jpg)](https://www.youtube.com/watch?v=x7PxFA5COgg)
+
+or
+
+🎥 [Watch Demo on YouTube](https://www.youtube.com/watch?v=x7PxFA5COgg)
 
 📱**Features at a Glance**
 - **Smart Expiry Tracking**
