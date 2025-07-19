@@ -19,13 +19,13 @@ ExDate is a smart Flutter app that helps you track the expiry dates of food item
   <img src="https://github.com/user-attachments/assets/f2bd5825-f43e-4f35-b979-49282b2a4f72" alt="Screenshot 10" width="180" style="margin: 5px;"/>
 </div>
 
-__**Features at a Glance**__
-- **1. Smart Expiry Tracking**
+**Features at a Glance**
+- **Smart Expiry Tracking**
   - Lists upcoming items expiring within the next 30 days.
 
   - Sends local notifications approximately 12 hours before an item expires.
 
-- **2. Screens & Functionality**
+- **Screens & Functionality**
   - **Splash Screen**: Simple and smooth animated startup.
 
   - **Login / Signup / Forgot Password**: Secure authentication using Firebase Auth.
@@ -42,14 +42,14 @@ __**Features at a Glance**__
 
   - **Profile Screen**: Lets users edit their username, change password, toggle notifications on/off, and logout.
 
-- **3. Smart Recipe Integration**
+- **Smart Recipe Integration**
   - **Search Recipes**: Search recipes using available ingredients.
 
   - **Recipe Suggestions**: Suggests recipes based on ingredients you added {which u obviously will do for the ones that are going near expiry :) }.
 
   - **Recipe Detail Screen**: Shows which ingredients you have added to search and which are missing for a recipe.
 
-- **4. APIs and Services Used**
+- **APIs and Services Used**
   - **Firebase Authentication**: Handles user sign-in, sign-up, and password management.
 
   - **Firebase Firestore**: Real-time database for storing user and item data.
@@ -60,7 +60,7 @@ __**Features at a Glance**__
 
   - **Pixabay API**: Fetches relevant images for food and medicine items.
 
-- **5. Dashboard Insights**
+- **Dashboard Insights**
   - **Calendar View**: Displays expiry dates visually across the month.
 
   - **Line Chart**: Shows expiry trends over the past 7 days.
@@ -69,7 +69,7 @@ __**Features at a Glance**__
 
   - **Pie Chart**: Represents status breakdown of items (Expired, Not Expired).
 
-- **6. Tech Stack**
+- **Tech Stack**
   - **Framework**: Flutter (Dart)
   - **Backend Services**: Firebase Authentication, Firebase Firestore
   - **APIs**: Spoonacular API, Pixabay API
