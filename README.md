@@ -23,7 +23,7 @@ ExDate is a smart Flutter app that helps you track the expiry dates of food item
 - **Smart Expiry Tracking**
   - Lists upcoming items expiring within the next 30 days.
 
-  - Sends local notifications approximately 12 hours before an item expires.
+  - Sends local notifications everyday starting from when there's 7 days left for an item to expire.
 
 - **Screens & Functionality**
   - **Splash Screen**: Simple and smooth animated startup.
